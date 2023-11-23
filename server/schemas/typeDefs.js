@@ -16,12 +16,6 @@ const typeDefs = `
     title: String!
   }
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
-  }
 
   type Auth {
     token: ID!
@@ -30,6 +24,8 @@ const typeDefs = `
 
   type Query {
     me: User
+    users: [User]
+    user(username: String!): User
   }
 
   input BookInput {
@@ -46,7 +42,7 @@ const typeDefs = `
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     saveBook(book: BookInput! ): User
-    removeBook(thoughtId: ID!): User
+    removeBook(bookId: String!): User
   }
 `;
 
