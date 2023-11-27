@@ -19,11 +19,13 @@ const SavedBooks = () => {
 
   // use this to determine if `useEffect()` hook needs to run again
   const [RemoveBook] = useMutation(REMOVE_BOOK, {
-
+    refetchQueries: [
     QUERY_ME,
     'Me'
-
+    ]
   })
+
+
 
   const {loading, data} = useQuery(QUERY_ME);
 
